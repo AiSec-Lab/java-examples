@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPS 151 Java Execution Animations</title>
+  <style>
+    :root { color-scheme: dark; --navy:#071f3d; --panel:#0b294b; --line:#245782; --orange:#f15a24; --ink:#eaf3ff; --muted:#abc2da; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:radial-gradient(circle at 85% 0%,#174c79 0,var(--navy) 38rem); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { width:min(1050px,calc(100% - 32px)); margin:0 auto; padding:64px 0; }
+    .eyebrow { color:#ff9a73; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:.35rem 0 .7rem; font-size:clamp(2rem,6vw,4rem); line-height:1.05; }
+    .intro { max-width:720px; color:var(--muted); font-size:1.12rem; line-height:1.6; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; margin-top:38px; }
+    a { display:block; padding:24px; min-height:210px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(145deg,rgba(14,54,95,.96),rgba(7,31,61,.96)); color:inherit; text-decoration:none; box-shadow:0 18px 40px rgba(0,0,0,.23); transition:transform .18s,border-color .18s; }
+    a:hover, a:focus-visible { transform:translateY(-4px); border-color:#ff8b61; outline:none; }
+    .number { color:var(--orange); font-size:.82rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
+    h2 { margin:.55rem 0; font-size:1.45rem; }
+    .card-text { color:var(--muted); line-height:1.5; }
+    .open { display:inline-block; margin-top:14px; color:#fff; font-weight:800; }
+    footer { margin-top:34px; color:var(--muted); font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">CPS 151 · Programming II and Algorithms</div>
+    <h1>Java execution animations</h1>
+    <p class="intro">Choose an exercise to trace Java execution statement by statement. Use Previous, Next, or Play to follow the call stack, references, objects, changing values, and console output.</p>
+    <section class="cards" aria-label="Available exercises">
+      <a href="exercise-02/">
+        <div class="number">Exercise 02</div>
+        <h2>Methods, references, and increments</h2>
+        <div class="card-text">Trace inline operations, pre/post increment, method calls, reference reassignment, and constructor behavior.</div>
+        <span class="open">Open animation →</span>
+      </a>
+      <a href="exercise-03/">
+        <div class="number">Exercise 03</div>
+        <h2>Inheritance and construction</h2>
+        <div class="card-text">Trace constructor chaining, superclass calls, composition, overriding, and runtime method selection.</div>
+        <span class="open">Open animation →</span>
+      </a>
+      <a href="exercise-04/">
+        <div class="number">Exercise 04</div>
+        <h2>Polymorphism and abstraction</h2>
+        <div class="card-text">Trace runtime dispatch and object behavior through superclass, abstract-class, and interface references.</div>
+        <span class="open">Open animation →</span>
+      </a>
+    </section>
+    <footer>Animations run entirely in the browser. No installation or sign-in is required.</footer>
+  </main>
+</body>
+</html>
