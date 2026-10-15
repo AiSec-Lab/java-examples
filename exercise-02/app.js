@@ -256,7 +256,10 @@
 
   function stop() { clearInterval(timer); timer = null; els.play.textContent = "▶ Play"; }
   function start() {
-    if (stepIndex === program().steps.length - 1) stepIndex = 0;
+    if (stepIndex === program().steps.length - 1) {
+      stepIndex = 0;
+      render();
+    }
     els.play.textContent = "❚❚ Pause";
     const tick = () => {
       if (stepIndex >= program().steps.length - 1) return stop();
