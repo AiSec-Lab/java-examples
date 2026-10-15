@@ -8,6 +8,20 @@ window.TRACE_SET = {
       "steps": [
         {
           "line": 19,
+          "title": "Prepare static total with its default value",
+          "reason": "Before the explicit static initializer runs, the static int field has its default value 0.",
+          "state": {
+            "P1Meter.total": "0"
+          },
+          "stack": [
+            "main",
+            "P1Meter class initialization"
+          ],
+          "phase": "Default initialization",
+          "focus": "static int total = 1;"
+        },
+        {
+          "line": 19,
           "title": "Initialize static state",
           "reason": "P1Meter is initialized when first used. The one shared total field starts at 1.",
           "state": {
@@ -30,15 +44,43 @@ window.TRACE_SET = {
           "phase": "Constructor call"
         },
         {
+          "line": 3,
+          "title": "Allocate Meter@1 with default fields",
+          "reason": "Allocation initializes both int fields to 0 before this(...) arguments or any instance field initializer are evaluated.",
+          "state": {
+            "Meter@1": "{ id=0, value=0 }"
+          },
+          "stack": [
+            "main"
+          ],
+          "phase": "Object allocation",
+          "focus": "new P1Meter(2)"
+        },
+        {
           "line": 28,
           "title": "Delegate with this(2, 3)",
           "reason": "The int constructor must delegate before its own body. n+1 evaluates to 3.",
           "state": {},
           "stack": [
             "main",
+            "P1Meter(2)",
             "P1Meter(2, 3)"
           ],
           "phase": "Constructor delegation"
+        },
+        {
+          "line": 32,
+          "title": "Complete implicit Object construction",
+          "reason": "The terminal P1Meter(int, int) constructor implicitly invokes Object() before P1Meter instance field initializers run.",
+          "state": {},
+          "stack": [
+            "main",
+            "P1Meter(2)",
+            "P1Meter(2, 3)",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P1Meter(int n, int extra)"
         },
         {
           "line": 20,
@@ -50,6 +92,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter(2)",
             "P1Meter(2, 3)"
           ],
           "phase": "Pre-increment"
@@ -63,6 +106,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter(2)",
             "P1Meter(2, 3)"
           ],
           "phase": "Field initialization"
@@ -76,6 +120,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter(2)",
             "P1Meter(2, 3)"
           ],
           "phase": "Field update"
@@ -89,6 +134,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter(2)",
             "P1Meter(2, 3)"
           ],
           "phase": "Static field update"
@@ -100,6 +146,7 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P1Meter(2)",
             "P1Meter(2, 3)"
           ],
           "phase": "Console output",
@@ -154,6 +201,19 @@ window.TRACE_SET = {
           "phase": "Constructor call"
         },
         {
+          "line": 4,
+          "title": "Allocate Meter@2 with default fields",
+          "reason": "Allocation initializes both int fields to 0 before this(...) arguments or any instance field initializer are evaluated.",
+          "state": {
+            "Meter@2": "{ id=0, value=0 }"
+          },
+          "stack": [
+            "main"
+          ],
+          "phase": "Object allocation",
+          "focus": "new P1Meter()"
+        },
+        {
           "line": 23,
           "title": "Evaluate total++ for this(...)",
           "reason": "Post-increment passes old total 11 to P1Meter(int), then changes total to 12.",
@@ -163,6 +223,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter()",
             "P1Meter(11)"
           ],
           "phase": "Post-increment"
@@ -174,9 +235,26 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P1Meter()",
+            "P1Meter(11)",
             "P1Meter(11, 12)"
           ],
           "phase": "Constructor delegation"
+        },
+        {
+          "line": 32,
+          "title": "Complete Meter@2 implicit Object construction",
+          "reason": "The same Meter@2 goes through Object() once; this(...) delegation does not allocate another object or rerun initialization.",
+          "state": {},
+          "stack": [
+            "main",
+            "P1Meter()",
+            "P1Meter(11)",
+            "P1Meter(11, 12)",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P1Meter(int n, int extra)"
         },
         {
           "line": 20,
@@ -188,6 +266,8 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter()",
+            "P1Meter(11)",
             "P1Meter(11, 12)"
           ],
           "phase": "Pre-increment"
@@ -201,6 +281,8 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter()",
+            "P1Meter(11)",
             "P1Meter(11, 12)"
           ],
           "phase": "Field initialization"
@@ -214,6 +296,8 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter()",
+            "P1Meter(11)",
             "P1Meter(11, 12)"
           ],
           "phase": "Field update"
@@ -227,6 +311,8 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter()",
+            "P1Meter(11)",
             "P1Meter(11, 12)"
           ],
           "phase": "Static field update"
@@ -238,6 +324,8 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P1Meter()",
+            "P1Meter(11)",
             "P1Meter(11, 12)"
           ],
           "phase": "Console output",
@@ -252,6 +340,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P1Meter()",
             "P1Meter(11)"
           ],
           "phase": "Constructor continuation"
@@ -263,6 +352,7 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P1Meter()",
             "P1Meter(11)"
           ],
           "phase": "Console output",
@@ -401,7 +491,11 @@ window.TRACE_SET = {
             "main",
             "Meter@1.shift(int 96)"
           ],
-          "phase": "Return"
+          "phase": "Return",
+          "reads": {
+            "Meter@1": "read value=103",
+            "P1Meter.total": "read total=62"
+          }
         },
         {
           "line": 7,
@@ -414,6 +508,21 @@ window.TRACE_SET = {
             "main"
           ],
           "phase": "Assignment"
+        },
+        {
+          "line": 8,
+          "title": "Build the checkpoint B message",
+          "reason": "Evaluate the string concatenation on this line before continuing onto the following source line. No output is written until the complete println argument is ready.",
+          "state": {},
+          "stack": [
+            "main"
+          ],
+          "phase": "Argument evaluation",
+          "focus": "System.out.println(\"B \" + r + \" \" + a.value + \" \"",
+          "reads": {
+            "Meter@1": "read a.value for string concatenation",
+            "r": "read the assigned local value"
+          }
         },
         {
           "line": 9,
@@ -436,7 +545,10 @@ window.TRACE_SET = {
           "stack": [
             "main"
           ],
-          "phase": "Compound assignment"
+          "phase": "Compound assignment",
+          "reads": {
+            "Meter@2": "save the current value 97 before evaluating the right-hand side"
+          }
         },
         {
           "line": 10,
@@ -511,7 +623,11 @@ window.TRACE_SET = {
             "main",
             "Meter@1.shift(long 98)"
           ],
-          "phase": "Return"
+          "phase": "Return",
+          "reads": {
+            "Meter@1": "read value=101",
+            "P1Meter.total": "read total=160"
+          }
         },
         {
           "line": 10,
@@ -558,7 +674,10 @@ window.TRACE_SET = {
           "stack": [
             "main"
           ],
-          "phase": "Argument evaluation"
+          "phase": "Argument evaluation",
+          "reads": {
+            "Meter@1": "alias still refers to this object; read value=101"
+          }
         },
         {
           "line": 13,
@@ -609,7 +728,11 @@ window.TRACE_SET = {
             "main",
             "Meter@2.shift(int 101)"
           ],
-          "phase": "Return"
+          "phase": "Return",
+          "reads": {
+            "Meter@2": "read value=139",
+            "P1Meter.total": "read total=173"
+          }
         },
         {
           "line": 13,
@@ -622,6 +745,22 @@ window.TRACE_SET = {
             "main"
           ],
           "phase": "Assignment"
+        },
+        {
+          "line": 14,
+          "title": "Build the checkpoint D message",
+          "reason": "Evaluate the string concatenation on this line before continuing onto the following source line. No output is written until the complete println argument is ready.",
+          "state": {},
+          "stack": [
+            "main"
+          ],
+          "phase": "Argument evaluation",
+          "focus": "System.out.println(\"D \" + s + \" \" + a.value + \" \" + alias.value",
+          "reads": {
+            "Meter@2": "read a.value for string concatenation",
+            "Meter@1": "read alias.value for string concatenation",
+            "s": "read the assigned local value"
+          }
         },
         {
           "line": 15,
@@ -641,29 +780,29 @@ window.TRACE_SET = {
       "source": "public class Trace02Problem2 {\n    static void change(P2Cell first, P2Cell second) {\n        first.value += second.mix(first, 2);\n        System.out.println(\"inside \" + first.value + \" \" + second.value\n                + \" \" + P2Cell.total);\n        first = new P2Cell(second);\n        second = first;\n        second.mix(1, first);\n        System.out.println(\"local \" + first.value + \" \" + second.value\n                + \" \" + P2Cell.total + \" \" + (first == second));\n    }\n    public static void main(String[] args) {\n        P2Cell a = new P2Cell(3);\n        P2Cell b = new P2Cell(a);\n        P2Cell keep = a;\n        System.out.println(\"A \" + a.value + \" \" + b.value + \" \" + P2Cell.total);\n        change(a, b);\n        System.out.println(\"B \" + a.value + \" \" + b.value + \" \"\n                + P2Cell.latest.value + \" \" + P2Cell.total);\n        int r = a.mix(b.value++, P2Cell.latest);\n        System.out.println(\"C \" + r + \" \" + a.value + \" \" + b.value\n                + \" \" + P2Cell.latest.value + \" \" + P2Cell.total);\n        b = P2Cell.latest;\n        int s = b.mix(keep, a.mix(1, b));\n        System.out.println(\"D \" + s + \" \" + a.value + \" \" + b.value\n                + \" \" + P2Cell.total + \" \" + (keep == a));\n    }\n}\nclass P2Cell {\n    static int total = 1;\n    static P2Cell latest;\n    int value;\n    P2Cell(int n) {\n        value = n + total++;\n        latest = this;\n    }\n    P2Cell(P2Cell other) {\n        this(other.value++);\n        other.value += total;\n        value += other.value;\n    }\n    int mix(P2Cell other, int n) {\n        value += n;\n        other.value += value;\n        total++;\n        return value - other.value;\n    }\n    int mix(int n, P2Cell other) {\n        other.value += n;\n        value += other.value;\n        total += 2;\n        return value + other.value;\n    }\n}",
       "steps": [
         {
-          "line": 30,
-          "title": "Initialize static total",
-          "reason": "P2Cell.total starts at 1; latest starts null.",
-          "state": {
-            "P2Cell.total": "1",
-            "P2Cell.latest": "null"
-          },
-          "stack": [
-            "class initialization"
-          ],
-          "phase": "Class initialization"
-        },
-        {
           "line": 31,
-          "title": "Default-initialize static latest",
-          "reason": "Reference-valued static fields default to null.",
+          "title": "Prepare static fields with default values",
+          "reason": "Before explicit static initialization, total is 0 and the reference field latest is null.",
           "state": {
+            "P2Cell.total": "0",
             "P2Cell.latest": "null"
           },
           "stack": [
             "class initialization"
           ],
           "phase": "Default field initialization"
+        },
+        {
+          "line": 30,
+          "title": "Initialize static total",
+          "reason": "The explicit initializer static int total = 1 now runs; latest remains null.",
+          "state": {
+            "P2Cell.total": "1"
+          },
+          "stack": [
+            "class initialization"
+          ],
+          "phase": "Class initialization"
         },
         {
           "line": 13,
@@ -688,6 +827,19 @@ window.TRACE_SET = {
             "P2Cell(3)"
           ],
           "phase": "Default field initialization"
+        },
+        {
+          "line": 33,
+          "title": "Complete implicit Object construction",
+          "reason": "The P2Cell(int) constructor implicitly invokes Object() on this same newly allocated cell before its body executes.",
+          "state": {},
+          "stack": [
+            "main",
+            "P2Cell(3)",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Cell(int n)"
         },
         {
           "line": 34,
@@ -768,6 +920,20 @@ window.TRACE_SET = {
           "phase": "Post-increment"
         },
         {
+          "line": 33,
+          "title": "Complete implicit Object construction",
+          "reason": "The P2Cell(int) constructor implicitly invokes Object() on this same newly allocated cell before its body executes.",
+          "state": {},
+          "stack": [
+            "main",
+            "P2Cell(Cell@1)",
+            "P2Cell(4)",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Cell(int n)"
+        },
+        {
           "line": 34,
           "title": "Initialize new Cell@2",
           "reason": "value = 4 + old total 2 = 6; total then becomes 3.",
@@ -807,7 +973,10 @@ window.TRACE_SET = {
             "main",
             "P2Cell(Cell@1)"
           ],
-          "phase": "Source mutation"
+          "phase": "Source mutation",
+          "reads": {
+            "Cell@1": "read the source object during copy construction"
+          }
         },
         {
           "line": 40,
@@ -820,7 +989,10 @@ window.TRACE_SET = {
             "main",
             "P2Cell(Cell@1)"
           ],
-          "phase": "Field update"
+          "phase": "Field update",
+          "reads": {
+            "Cell@1": "read the source object during copy construction"
+          }
         },
         {
           "line": 14,
@@ -882,7 +1054,10 @@ window.TRACE_SET = {
             "main",
             "change(...)"
           ],
-          "phase": "Compound assignment"
+          "phase": "Compound assignment",
+          "reads": {
+            "Cell@1": "save value=8 before calling mix"
+          }
         },
         {
           "line": 3,
@@ -963,7 +1138,11 @@ window.TRACE_SET = {
             "change(...)",
             "Cell@2.mix(Cell@1, 2)"
           ],
-          "phase": "Return"
+          "phase": "Return",
+          "reads": {
+            "Cell@2": "read receiver value=16",
+            "Cell@1": "read other.value=24"
+          }
         },
         {
           "line": 3,
@@ -977,6 +1156,22 @@ window.TRACE_SET = {
             "change(...)"
           ],
           "phase": "Compound assignment"
+        },
+        {
+          "line": 4,
+          "title": "Build the inside checkpoint message",
+          "reason": "Evaluate the string concatenation on this line before continuing onto the following source line. No output is written until the complete println argument is ready.",
+          "state": {},
+          "stack": [
+            "main",
+            "change(...)"
+          ],
+          "phase": "Argument evaluation",
+          "focus": "System.out.println(\"inside \" + first.value + \" \" + second.value",
+          "reads": {
+            "Cell@1": "read first.value for string concatenation",
+            "Cell@2": "read second.value for string concatenation"
+          }
         },
         {
           "line": 5,
@@ -1030,6 +1225,20 @@ window.TRACE_SET = {
             "P2Cell(16)"
           ],
           "phase": "Post-increment"
+        },
+        {
+          "line": 33,
+          "title": "Complete implicit Object construction",
+          "reason": "The P2Cell(int) constructor implicitly invokes Object() on this same newly allocated cell before its body executes.",
+          "state": {},
+          "stack": [
+            "main",
+            "change(...)",
+            "P2Cell(16)",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Cell(int n)"
         },
         {
           "line": 34,
@@ -1193,7 +1402,10 @@ window.TRACE_SET = {
             "change(...)",
             "Cell@3.mix(1, Cell@3)"
           ],
-          "phase": "Return"
+          "phase": "Return",
+          "reads": {
+            "Cell@3": "both receiver and other refer to this one object; read value=86 twice"
+          }
         },
         {
           "line": 8,
@@ -1206,6 +1418,21 @@ window.TRACE_SET = {
           ],
           "phase": "Method return",
           "focus": "second.mix(1, first)"
+        },
+        {
+          "line": 9,
+          "title": "Build the local checkpoint message",
+          "reason": "Evaluate the string concatenation on this line before continuing onto the following source line. No output is written until the complete println argument is ready.",
+          "state": {},
+          "stack": [
+            "main",
+            "change(...)"
+          ],
+          "phase": "Argument evaluation",
+          "focus": "System.out.println(\"local \" + first.value + \" \" + second.value",
+          "reads": {
+            "Cell@3": "read second.value for string concatenation"
+          }
         },
         {
           "line": 10,
@@ -1231,6 +1458,21 @@ window.TRACE_SET = {
             "main"
           ],
           "phase": "Method return"
+        },
+        {
+          "line": 18,
+          "title": "Build the checkpoint B message",
+          "reason": "Evaluate the string concatenation on this line before continuing onto the following source line. No output is written until the complete println argument is ready.",
+          "state": {},
+          "stack": [
+            "main"
+          ],
+          "phase": "Argument evaluation",
+          "focus": "System.out.println(\"B \" + a.value + \" \" + b.value + \" \"",
+          "reads": {
+            "Cell@1": "read a.value for string concatenation",
+            "Cell@2": "read b.value for string concatenation"
+          }
         },
         {
           "line": 19,
@@ -1321,15 +1563,19 @@ window.TRACE_SET = {
         {
           "line": 52,
           "title": "Return 216",
-          "reason": "Cell@1.value + Cell@3.value = 108 + 108.",
+          "reason": "The method returns 108 + 108 = 216. The caller has not assigned r yet; that happens when control returns to line 20.",
           "state": {
-            "r": "216"
+            "return value": "216"
           },
           "stack": [
             "main",
             "Cell@1.mix(22, Cell@3)"
           ],
-          "phase": "Return and assignment"
+          "phase": "Return and assignment",
+          "reads": {
+            "Cell@1": "read receiver value=108",
+            "Cell@3": "read other.value=108"
+          }
         },
         {
           "line": 20,
@@ -1343,6 +1589,22 @@ window.TRACE_SET = {
           ],
           "phase": "Return and assignment",
           "focus": "int r = a.mix(b.value++, P2Cell.latest)"
+        },
+        {
+          "line": 21,
+          "title": "Build the checkpoint C message",
+          "reason": "Evaluate the string concatenation on this line before continuing onto the following source line. No output is written until the complete println argument is ready.",
+          "state": {},
+          "stack": [
+            "main"
+          ],
+          "phase": "Argument evaluation",
+          "focus": "System.out.println(\"C \" + r + \" \" + a.value + \" \" + b.value",
+          "reads": {
+            "Cell@1": "read a.value for string concatenation",
+            "Cell@2": "read b.value for string concatenation",
+            "r": "read the assigned local value"
+          }
         },
         {
           "line": 22,
@@ -1529,7 +1791,11 @@ window.TRACE_SET = {
             "main",
             "Cell@3.mix(Cell@1, 326)"
           ],
-          "phase": "Return"
+          "phase": "Return",
+          "reads": {
+            "Cell@3": "read receiver value=435",
+            "Cell@1": "read other.value=652"
+          }
         },
         {
           "line": 24,
@@ -1543,6 +1809,22 @@ window.TRACE_SET = {
           ],
           "phase": "Return and assignment",
           "focus": "int s = b.mix(keep, a.mix(1, b))"
+        },
+        {
+          "line": 25,
+          "title": "Build the checkpoint D message",
+          "reason": "Evaluate the string concatenation on this line before continuing onto the following source line. No output is written until the complete println argument is ready.",
+          "state": {},
+          "stack": [
+            "main"
+          ],
+          "phase": "Argument evaluation",
+          "focus": "System.out.println(\"D \" + s + \" \" + a.value + \" \" + b.value",
+          "reads": {
+            "Cell@1": "read a.value for string concatenation",
+            "Cell@3": "read b.value for string concatenation",
+            "s": "read the assigned local value"
+          }
         },
         {
           "line": 26,

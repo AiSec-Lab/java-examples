@@ -43,6 +43,19 @@ window.TRACE_SET = {
           "phase": "Default field initialization"
         },
         {
+          "line": 17,
+          "title": "Complete implicit Object construction",
+          "reason": "P1Counter(int) implicitly calls Object() before its constructor body assigns this.value.",
+          "state": {},
+          "stack": [
+            "main",
+            "P1Counter(5)",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P1Counter(int value)"
+        },
+        {
           "line": 18,
           "title": "Initialize the counter field",
           "reason": "The parameter value is 5. this.value names the field of the new object.",
@@ -268,6 +281,19 @@ window.TRACE_SET = {
           "phase": "Default field initialization"
         },
         {
+          "line": 19,
+          "title": "Complete implicit Object construction",
+          "reason": "The terminal P2Label(String) constructor implicitly calls Object() before assigning its fields.",
+          "state": {},
+          "stack": [
+            "main",
+            "P2Label(\"Lab\")",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Label(String text)"
+        },
+        {
           "line": 20,
           "title": "Store the label text",
           "reason": "this.text receives \"Lab\" in the new object.",
@@ -368,6 +394,20 @@ window.TRACE_SET = {
           "phase": "Default field initialization"
         },
         {
+          "line": 19,
+          "title": "Complete implicit Object construction",
+          "reason": "The terminal P2Label(String) constructor implicitly calls Object() before assigning its fields.",
+          "state": {},
+          "stack": [
+            "main",
+            "P2Device(\"A\")",
+            "P2Label(\"Default\")",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Label(String text)"
+        },
+        {
           "line": 20,
           "title": "Initialize temporary label",
           "reason": "The new label stores \"Default\".",
@@ -401,6 +441,7 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)"
           ],
           "phase": "Constructor delegation"
@@ -412,10 +453,26 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)",
             "P2Asset(\"A\")"
           ],
           "phase": "Superclass call"
+        },
+        {
+          "line": 32,
+          "title": "Complete implicit Object construction",
+          "reason": "The terminal P2Asset(String) constructor implicitly calls Object() before assigning its fields.",
+          "state": {},
+          "stack": [
+            "main",
+            "P2Device(\"A\")",
+            "P2Device(\"A\", Label@2)",
+            "P2Asset(\"A\")",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Asset(String id)"
         },
         {
           "line": 33,
@@ -426,6 +483,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)",
             "P2Asset(\"A\")"
           ],
@@ -438,6 +496,7 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)",
             "P2Asset(\"A\")"
           ],
@@ -451,6 +510,7 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)",
             "P2Label(Label@2)"
           ],
@@ -465,6 +525,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)",
             "P2Label(Label@2)"
           ],
@@ -477,11 +538,31 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)",
             "P2Label(Label@2)",
             "P2Label(\"Default\")"
           ],
-          "phase": "Constructor delegation"
+          "phase": "Constructor delegation",
+          "reads": {
+            "Label@2": "read the source text \"Default\"; no label object is changed"
+          }
+        },
+        {
+          "line": 19,
+          "title": "Complete implicit Object construction",
+          "reason": "The terminal P2Label(String) constructor implicitly calls Object() before assigning its fields.",
+          "state": {},
+          "stack": [
+            "main",
+            "P2Device(\"A\")",
+            "P2Device(\"A\", Label@2)",
+            "P2Label(Label@2)",
+            "P2Label(\"Default\")",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Label(String text)"
         },
         {
           "line": 20,
@@ -492,6 +573,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)",
             "P2Label(Label@2)",
             "P2Label(\"Default\")"
@@ -505,6 +587,7 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)",
             "P2Label(Label@2)",
             "P2Label(\"Default\")"
@@ -521,6 +604,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)"
           ],
           "phase": "Composition"
@@ -532,6 +616,7 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P2Device(\"A\")",
             "P2Device(\"A\", Label@2)"
           ],
           "output": "device A",
@@ -552,12 +637,11 @@ window.TRACE_SET = {
         {
           "line": 5,
           "title": "Construct device B",
-          "reason": "The full constructor receives original (Label@1). It first calls super(id).",
+          "reason": "Allocate Device@2 and select P2Device(String, P2Label), passing original (Label@1). The explicit super(id) call is a later step.",
           "state": {},
           "stack": [
             "main",
-            "P2Device(\"B\", Label@1)",
-            "P2Asset(\"B\")"
+            "P2Device(\"B\", Label@1)"
           ],
           "phase": "Constructor call"
         },
@@ -601,6 +685,20 @@ window.TRACE_SET = {
           "focus": "super(id)"
         },
         {
+          "line": 32,
+          "title": "Complete implicit Object construction",
+          "reason": "The terminal P2Asset(String) constructor implicitly calls Object() before assigning its fields.",
+          "state": {},
+          "stack": [
+            "main",
+            "P2Device(\"B\", Label@1)",
+            "P2Asset(\"B\")",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Asset(String id)"
+        },
+        {
           "line": 33,
           "title": "Initialize B inherited id",
           "reason": "The superclass part of Device@2 stores id=\"B\".",
@@ -630,7 +728,7 @@ window.TRACE_SET = {
         {
           "line": 47,
           "title": "Copy original for B",
-          "reason": "The copy constructor delegates with original.text, which is currently \"Lab\".",
+          "reason": "Evaluate new P2Label(label) with label referring to original Label@1. Allocation and the copy constructor follow; this(...) has not run yet.",
           "state": {},
           "stack": [
             "main",
@@ -665,7 +763,25 @@ window.TRACE_SET = {
             "P2Label(\"Lab\")"
           ],
           "phase": "Constructor delegation",
-          "focus": "this(other.text)"
+          "focus": "this(other.text)",
+          "reads": {
+            "Label@1": "read the source text \"Lab\"; no label object is changed"
+          }
+        },
+        {
+          "line": 19,
+          "title": "Complete implicit Object construction",
+          "reason": "The terminal P2Label(String) constructor implicitly calls Object() before assigning its fields.",
+          "state": {},
+          "stack": [
+            "main",
+            "P2Device(\"B\", Label@1)",
+            "P2Label(Label@1)",
+            "P2Label(\"Lab\")",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P2Label(String text)"
         },
         {
           "line": 20,
@@ -754,7 +870,12 @@ window.TRACE_SET = {
             "main"
           ],
           "output": "A Changed Lab",
-          "phase": "Console output"
+          "phase": "Console output",
+          "reads": {
+            "Label@1": "read text=\"Changed\"",
+            "Device@2": "follow its reference to Label@4",
+            "Label@4": "read text=\"Lab\""
+          }
         },
         {
           "line": 10,
@@ -766,7 +887,10 @@ window.TRACE_SET = {
           "stack": [
             "main"
           ],
-          "phase": "Reference assignment"
+          "phase": "Reference assignment",
+          "reads": {
+            "Device@1": "read its reference to Label@3"
+          }
         },
         {
           "line": 11,
@@ -789,7 +913,11 @@ window.TRACE_SET = {
             "main"
           ],
           "output": "B Ready true",
-          "phase": "Console output"
+          "phase": "Console output",
+          "reads": {
+            "Device@1": "read its reference to Label@3",
+            "Label@3": "read text=\"Ready\"; alias refers to this same object"
+          }
         }
       ]
     },
@@ -841,6 +969,7 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P3SpecialRecord(4)",
             "P3SpecialRecord(4, 1)"
           ],
           "phase": "Constructor delegation"
@@ -852,10 +981,26 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
+            "P3SpecialRecord(4)",
             "P3SpecialRecord(4, 1)",
             "P3Record(4)"
           ],
           "phase": "Superclass call"
+        },
+        {
+          "line": 18,
+          "title": "Complete implicit Object construction",
+          "reason": "The P3Record(int) constructor implicitly calls Object() before assigning its value field. This initializes the same object, not a separate superclass object.",
+          "state": {},
+          "stack": [
+            "main",
+            "P3SpecialRecord(4)",
+            "P3SpecialRecord(4, 1)",
+            "P3Record(4)",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P3Record(int value)"
         },
         {
           "line": 19,
@@ -866,6 +1011,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P3SpecialRecord(4)",
             "P3SpecialRecord(4, 1)",
             "P3Record(4)"
           ],
@@ -880,6 +1026,7 @@ window.TRACE_SET = {
           },
           "stack": [
             "main",
+            "P3SpecialRecord(4)",
             "P3SpecialRecord(4, 1)"
           ],
           "phase": "Field assignment"
@@ -949,7 +1096,8 @@ window.TRACE_SET = {
           "phase": "Return",
           "reads": {
             "Special@1": "read value and bonus"
-          }
+          },
+          "focus": "bonus"
         },
         {
           "line": 4,
@@ -1000,12 +1148,11 @@ window.TRACE_SET = {
           "state": {},
           "stack": [
             "main",
-            "P3SpecialRecord.describe()",
-            "P3Record.describe()"
+            "P3SpecialRecord.describe()"
           ],
           "phase": "Superclass method call",
           "reads": {
-            "Special@1": "read value and bonus"
+            "Special@1": "super.describe() has returned \"record 4\"; append \" special\" without changing the object"
           }
         },
         {
@@ -1058,7 +1205,7 @@ window.TRACE_SET = {
         {
           "line": 8,
           "title": "Dispatch score() again",
-          "reason": "record still points to Special@1, so the override returns 4 + 3 = 7.",
+          "reason": "record still refers to Special@1, so runtime dispatch selects P3SpecialRecord.score(). Its superclass call and addition execute in the following steps.",
           "state": {},
           "stack": [
             "main",
@@ -1108,7 +1255,8 @@ window.TRACE_SET = {
           "phase": "Return",
           "reads": {
             "Special@1": "read value and bonus"
-          }
+          },
+          "focus": "bonus"
         },
         {
           "line": 8,
@@ -1144,6 +1292,19 @@ window.TRACE_SET = {
             "P3Record(10)"
           ],
           "phase": "Default field initialization"
+        },
+        {
+          "line": 18,
+          "title": "Complete implicit Object construction",
+          "reason": "The P3Record(int) constructor implicitly calls Object() before assigning its value field. This initializes the same object, not a separate superclass object.",
+          "state": {},
+          "stack": [
+            "main",
+            "P3Record(10)",
+            "Object()"
+          ],
+          "phase": "Superclass call",
+          "focus": "P3Record(int value)"
         },
         {
           "line": 19,
