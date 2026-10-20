@@ -1,0 +1,48 @@
+{
+  "merge-sort": {
+    "steps": 460,
+    "javaWriteEventsMatch": 48,
+    "keyComparisonsMatch": 17,
+    "javaConsoleMatches": true
+  },
+  "merge-sort-duplicates": {
+    "steps": 247,
+    "javaWriteEventsMatch": 24,
+    "keyComparisonsMatch": 7,
+    "javaConsoleMatches": true
+  },
+  "merge-sort-comparison": {
+    "steps": 391,
+    "javaWriteEventsMatch": 40,
+    "keyComparisonsMatch": 14,
+    "javaConsoleMatches": true
+  },
+  "quick-sort": {
+    "steps": 262,
+    "javaWriteEventsMatch": 32,
+    "keyComparisonsMatch": 16,
+    "javaConsoleMatches": true
+  },
+  "quick-sort-sorted": {
+    "steps": 148,
+    "javaWriteEventsMatch": 8,
+    "keyComparisonsMatch": 10,
+    "javaConsoleMatches": true
+  },
+  "quick-sort-comparison": {
+    "steps": 221,
+    "javaWriteEventsMatch": 24,
+    "keyComparisonsMatch": 13,
+    "javaConsoleMatches": true
+  },
+  "pivot-strategies": {
+    "steps": 10,
+    "javaWriteEventsMatch": 0,
+    "keyComparisonsMatch": 0,
+    "javaConsoleMatches": true
+  },
+  "originalComparisonDriver": {
+    "passed": true,
+    "output": "merged [0..1]: [4, 12]\nmerged [2..3]: [4, 9]\nmerged [0..3]: [4, 4, 9, 12]\nmerged [4..5]: [1, 18]\nmerged [4..6]: [1, 7, 18]\nmerged [0..6]: [1, 4, 4, 7, 9, 12, 18]\npivot 12 at 5: [7, 4, 9, 4, 1, 12, 18]\npivot 7 at 3: [1, 4, 4, 7, 9, 12, 18]\npivot 1 at 0: [1, 4, 4, 7, 9, 12, 18]\npivot 4 at 1: [1, 4, 4, 7, 9, 12, 18]\nmerge result: [1, 4, 4, 7, 9, 12, 18]\nquick result: [1, 4, 4, 7, 9, 12, 18]\nsame result? true\n"
+  }
+}
