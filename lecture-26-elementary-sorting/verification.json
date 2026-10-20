@@ -1,0 +1,80 @@
+{
+  "bubble-sort": {
+    "steps": 141,
+    "javaOutputMatches": true,
+    "metrics": {
+      "Value comparisons": 10,
+      "Swap calls": 6,
+      "Self-swaps": 0,
+      "Shifts": 0,
+      "Array writes": 12,
+      "Completed passes": 4,
+      "Verification comparisons": 4
+    }
+  },
+  "bubble-sort-sorted": {
+    "steps": 51,
+    "javaOutputMatches": true,
+    "metrics": {
+      "Value comparisons": 4,
+      "Swap calls": 0,
+      "Self-swaps": 0,
+      "Shifts": 0,
+      "Array writes": 0,
+      "Completed passes": 1,
+      "Verification comparisons": 4
+    }
+  },
+  "selection-sort": {
+    "steps": 124,
+    "javaOutputMatches": true,
+    "metrics": {
+      "Value comparisons": 10,
+      "Swap calls": 4,
+      "Self-swaps": 2,
+      "Shifts": 0,
+      "Array writes": 8,
+      "Completed passes": 4,
+      "Verification comparisons": 4
+    }
+  },
+  "selection-sort-sorted": {
+    "steps": 120,
+    "javaOutputMatches": true,
+    "metrics": {
+      "Value comparisons": 10,
+      "Swap calls": 4,
+      "Self-swaps": 4,
+      "Shifts": 0,
+      "Array writes": 8,
+      "Completed passes": 4,
+      "Verification comparisons": 4
+    }
+  },
+  "insertion-sort": {
+    "steps": 96,
+    "javaOutputMatches": true,
+    "metrics": {
+      "Value comparisons": 8,
+      "Swap calls": 0,
+      "Self-swaps": 0,
+      "Shifts": 6,
+      "Array writes": 10,
+      "Completed passes": 4,
+      "Verification comparisons": 4
+    }
+  },
+  "insertion-sort-sorted": {
+    "steps": 74,
+    "javaOutputMatches": true,
+    "metrics": {
+      "Value comparisons": 4,
+      "Swap calls": 0,
+      "Self-swaps": 0,
+      "Shifts": 0,
+      "Array writes": 4,
+      "Completed passes": 4,
+      "Verification comparisons": 4
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bubble-sort": {
+    "arrayWriteSnapshotsMatchJava": 12,
+    "consoleMatchesJava": true,
+    "steps": 141
+  },
+  "bubble-sort-sorted": {
+    "arrayWriteSnapshotsMatchJava": 0,
+    "consoleMatchesJava": true,
+    "steps": 51
+  },
+  "selection-sort": {
+    "arrayWriteSnapshotsMatchJava": 8,
+    "consoleMatchesJava": true,
+    "steps": 124
+  },
+  "selection-sort-sorted": {
+    "arrayWriteSnapshotsMatchJava": 8,
+    "consoleMatchesJava": true,
+    "steps": 120
+  },
+  "insertion-sort": {
+    "arrayWriteSnapshotsMatchJava": 10,
+    "consoleMatchesJava": true,
+    "steps": 96
+  },
+  "insertion-sort-sorted": {
+    "arrayWriteSnapshotsMatchJava": 4,
+    "consoleMatchesJava": true,
+    "steps": 74
+  }
+}
