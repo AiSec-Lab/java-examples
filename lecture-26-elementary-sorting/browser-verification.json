@@ -1,0 +1,37 @@
+{
+  "programs": [
+    {
+      "id": "bubble-sort",
+      "steps": 141,
+      "passed": true
+    },
+    {
+      "id": "bubble-sort-sorted",
+      "steps": 51,
+      "passed": true
+    },
+    {
+      "id": "selection-sort",
+      "steps": 124,
+      "passed": true
+    },
+    {
+      "id": "selection-sort-sorted",
+      "steps": 120,
+      "passed": true
+    },
+    {
+      "id": "insertion-sort",
+      "steps": 96,
+      "passed": true
+    },
+    {
+      "id": "insertion-sort-sorted",
+      "steps": 74,
+      "passed": true
+    }
+  ],
+  "previousArrow": true,
+  "playback": true,
+  "pageErrors": []
+}

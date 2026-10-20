@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Trace Visualizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div><h1 id="page-title">Java Trace Visualizer</h1><p class="subtitle" id="subtitle"></p></div>
+      <div class="problem-picker"><label for="problem">Program</label><select id="problem"></select></div>
+    </header>
+    <section class="toolbar" aria-label="Playback controls">
+      <button id="previous">← Previous</button><button id="play">▶ Play</button><button id="next">Next →</button>
+      <div class="progress-wrap"><input id="progress" type="range" min="0" value="0" aria-label="Execution step"></div>
+      <div class="speed"><span>Speed</span><input id="speed" type="range" min="500" max="4000" step="250" value="2000" aria-label="Playback delay"></div>
+      <span class="counter" id="counter"></span>
+    </section>
+    <section id="analysis-metrics" class="analysis-metrics" aria-label="Sorting operation counters"></section>
+    <section class="workspace">
+      <section class="panel code-panel">
+        <div class="panel-title">Java source — active statement is orange</div>
+        <pre id="code" aria-label="Java source code"></pre>
+        <svg id="flow-arrow" aria-hidden="true"><defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffd166"/></marker></defs><path id="flow-path" marker-end="url(#arrowhead)"/></svg>
+      </section>
+      <aside class="right-column">
+        <section class="panel explanation"><div class="phase" id="phase"></div><h2 id="step-title"></h2><p id="reason"></p><span class="line-badge" id="line-badge"></span></section>
+        <section class="panel analysis-panel"><div class="panel-title">Analysis — invariant, growth, and stability</div><p id="analysis"></p><div id="array-view" class="array-view"></div><p class="hint">Counters count sorting value comparisons, executed swap calls (including self-swaps), shifts, and array writes. Loop guards and verification are separate. Library internals are not expanded.</p></section>
+        <section class="panel"><div class="panel-title">Call stack — current frame is outlined</div><div class="stack" id="stack"></div></section>
+        <section class="panel"><div class="panel-title">Active call frames and shared objects — gold changes · blue reads</div><div class="state-grid" id="state"></div></section>
+        <section class="panel console"><div class="panel-title">Console output</div><pre id="console-output"></pre><div class="hint">Keys: ← previous · → next · Space play/pause. Java source execution is shown; compilation and JVM bytecode are intentionally not animated.</div></section>
+        <details class="panel call-history"><summary>Completed passes — expand to compare arrays</summary><div id="call-history"></div></details>
+      </aside>
+    </section>
+  </main>
+  <script src="trace-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
