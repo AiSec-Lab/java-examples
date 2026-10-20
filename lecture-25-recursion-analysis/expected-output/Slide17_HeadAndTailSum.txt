@@ -1,0 +1,13 @@
+head returns 1 for n=1
+head returns 3 for n=2
+head returns 6 for n=3
+head returns 10 for n=4
+head returns 15 for n=5
+head result = 15
+tail n=5, total=0
+tail n=4, total=5
+tail n=3, total=9
+tail n=2, total=12
+tail n=1, total=14
+tail n=0, total=15
+tail result = 15

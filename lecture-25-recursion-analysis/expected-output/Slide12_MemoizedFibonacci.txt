@@ -1,0 +1,20 @@
+computing fib(10)
+computing fib(9)
+computing fib(8)
+computing fib(7)
+computing fib(6)
+computing fib(5)
+computing fib(4)
+computing fib(3)
+computing fib(2)
+computing fib(1)
+computing fib(0)
+cache hit for 1
+cache hit for 2
+cache hit for 3
+cache hit for 4
+cache hit for 5
+cache hit for 6
+cache hit for 7
+cache hit for 8
+fib(10) = 55

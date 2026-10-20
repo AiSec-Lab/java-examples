@@ -9,3 +9,5 @@ Interactive browser animations for Exercises 2–5.
 The site is deployed automatically to GitHub Pages when `main` changes.
 
 - `exercise-05-recursion/`: puzzle, factorial, array sum, and string reverse. Direct links: `#puzzle`, `#factorial`, `#array-sum`, `#reverse`.
+
+- `lecture-25-recursion-analysis/`: six complete recursion-analysis traces, with call/depth/cache metrics and call history.
