@@ -1,0 +1,2 @@
+naive: 5, calls=15
+memoized: 5, calls=9

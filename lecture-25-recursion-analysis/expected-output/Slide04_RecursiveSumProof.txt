@@ -1,0 +1,7 @@
+[4, 7, 2, 5]
+base: empty suffix -> 0
+index 3: 5 + 0 = 5
+index 2: 2 + 5 = 7
+index 1: 7 + 7 = 14
+index 0: 4 + 14 = 18
+sum = 18
