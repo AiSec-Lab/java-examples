@@ -1,0 +1,42 @@
+{
+  "programs": [
+    {
+      "id": "merge-sort",
+      "steps": 460,
+      "passed": true
+    },
+    {
+      "id": "merge-sort-duplicates",
+      "steps": 247,
+      "passed": true
+    },
+    {
+      "id": "merge-sort-comparison",
+      "steps": 391,
+      "passed": true
+    },
+    {
+      "id": "quick-sort",
+      "steps": 262,
+      "passed": true
+    },
+    {
+      "id": "quick-sort-sorted",
+      "steps": 148,
+      "passed": true
+    },
+    {
+      "id": "quick-sort-comparison",
+      "steps": 221,
+      "passed": true
+    },
+    {
+      "id": "pivot-strategies",
+      "steps": 10,
+      "passed": true
+    }
+  ],
+  "previousArrow": true,
+  "playback": true,
+  "pageErrors": []
+}
