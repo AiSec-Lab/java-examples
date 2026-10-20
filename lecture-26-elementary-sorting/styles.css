@@ -172,3 +172,5 @@ button:disabled { opacity: .4; cursor: default; }
 @media(max-width:700px){.analysis-metrics{grid-template-columns:repeat(2,minmax(0,1fr));}}
 
 .analysis-panel {padding: 16px;} #analysis {line-height:1.5;} .array-view {display:flex;gap:7px;flex-wrap:wrap;margin:12px 0;} .array-cell {border:1px solid #6b8fa8;border-radius:6px;min-width:45px;text-align:center;padding:6px;} .array-cell small,.array-cell strong {display:block;} .array-cell small {color:#9fb2ca;} .right-column {grid-template-rows:repeat(6,auto);}
+
+.array-cell.changed {border-color:#ffd166;box-shadow:0 0 10px #ffd16655;background:#ffd16622;}

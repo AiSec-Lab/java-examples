@@ -240,7 +240,7 @@
     $("call-history").innerHTML = (current.history || []).map(call =>
       `<div class="history-row${call.cacheHit ? ' cache-hit' : ''}" style="padding-left:${10 + 12*call.depth}px">#${call.id} ${escapeHtml(call.label)} · ${call.status === 'returned' ? 'returned '+escapeHtml(call.result) : 'active'}${call.cacheHit ? ' · CACHE HIT' : call.repeated ? ' · repeated input' : ''}</div>`).join("");
     $("analysis").textContent = current.analysis;
-    $("array-view").innerHTML = (current.array || []).map((value,index) => `<div class="array-cell"><small>[${index}]</small><strong>${escapeHtml(value)}</strong></div>`).join("");
+    $("array-view").innerHTML = (current.array || []).map((value,index) => `<div class="array-cell${stepIndex && program().steps[stepIndex-1].array?.[index] !== value ? " changed" : ""}"><small>[${index}]</small><strong>${escapeHtml(value)}</strong></div>`).join("");
     renderStack(current.stack);
     renderState(currentState, priorState);
 
