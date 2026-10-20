@@ -14,3 +14,5 @@ Already-sorted inputs are identical across all three sorts, allowing a fair comp
 - [selection-sort-sorted](https://aisec-lab.github.io/java-examples/lecture-26-elementary-sorting/#selection-sort-sorted)
 - [insertion-sort](https://aisec-lab.github.io/java-examples/lecture-26-elementary-sorting/#insertion-sort)
 - [insertion-sort-sorted](https://aisec-lab.github.io/java-examples/lecture-26-elementary-sorting/#insertion-sort-sorted)
+
+Time and auxiliary-space classifications describe the sorting core, excluding teaching print statements, formatting, verification, and visualization storage.
