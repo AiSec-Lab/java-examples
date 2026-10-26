@@ -1196,7 +1196,7 @@ window.TRACE_SET = {
         {
           "line": 7,
           "title": "Return the base value",
-          "reason": "factorial(0) returns 1, matching Lecture 23. No child call is made.",
+          "reason": "factorial(0) returns 1. No child call is made.",
           "phase": "Return",
           "stack": [
             "main",

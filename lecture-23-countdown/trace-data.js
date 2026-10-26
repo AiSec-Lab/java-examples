@@ -5,10 +5,10 @@ window.TRACE_SET = {
     {
       "id": "countdown",
       "title": "Count down from 3",
-      "source": "/** Lecture 23, slide 6: trace a base case and recursive progress. */\npublic class Slide08_CountDown {\n    public static void countDown(int value) {\n        if (value <= 0) {\n            System.out.println(\"Go!\");\n            return;\n        }\n        System.out.println(value);\n        countDown(value - 1);\n    }\n\n    public static void main(String[] args) {\n        countDown(3);\n    }\n}",
+      "source": "/** Lecture 23, slide 6: trace a base case and recursive progress. */\npublic class Slide08_CountDown {\n    public static void countDown(int value) {\n        if (value <= 0) {\n            System.out.println(\"Go!\");\n            return;\n        }\n        System.out.println(value);\n\n        // Correct: the next call moves toward the base case.\n        countDown(value - 1);\n\n        // Try these one at a time to demonstrate broken progress.\n        // countDown(value);     // No reduction: repeats forever.\n        // countDown(value + 1); // Moves away from the base case.\n    }\n\n    public static void main(String[] args) {\n        countDown(3);\n    }\n}",
       "steps": [
         {
-          "line": 12,
+          "line": 18,
           "title": "Enter main",
           "reason": "This is the main method.",
           "phase": "Method entry",
@@ -21,7 +21,7 @@ window.TRACE_SET = {
           "focus": "public static void main"
         },
         {
-          "line": 13,
+          "line": 19,
           "title": "Evaluate the initial argument",
           "reason": "The first call will receive the integer value 3.",
           "phase": "Argument evaluation",
@@ -34,7 +34,7 @@ window.TRACE_SET = {
           "focus": "3"
         },
         {
-          "line": 13,
+          "line": 19,
           "title": "Call countDown(3)",
           "reason": "Suspend main until the countdown finishes.",
           "phase": "Method call",
@@ -114,7 +114,7 @@ window.TRACE_SET = {
           "output": "3"
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Calculate the smaller argument",
           "reason": "value - 1 is 2. The current call keeps value = 3 while the child runs.",
           "phase": "Argument evaluation",
@@ -132,7 +132,7 @@ window.TRACE_SET = {
           }
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Call countDown(2)",
           "reason": "Suspend this call and enter the same method with the smaller value.",
           "phase": "Method call",
@@ -222,7 +222,7 @@ window.TRACE_SET = {
           "output": "2"
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Calculate the smaller argument",
           "reason": "value - 1 is 1. The current call keeps value = 2 while the child runs.",
           "phase": "Argument evaluation",
@@ -242,7 +242,7 @@ window.TRACE_SET = {
           }
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Call countDown(1)",
           "reason": "Suspend this call and enter the same method with the smaller value.",
           "phase": "Method call",
@@ -342,7 +342,7 @@ window.TRACE_SET = {
           "output": "1"
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Calculate the smaller argument",
           "reason": "value - 1 is 0. The current call keeps value = 1 while the child runs.",
           "phase": "Argument evaluation",
@@ -364,7 +364,7 @@ window.TRACE_SET = {
           }
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Call countDown(0)",
           "reason": "Suspend this call and enter the same method with the smaller value.",
           "phase": "Method call",
@@ -492,7 +492,7 @@ window.TRACE_SET = {
           "focus": "return"
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Resume countDown(1)",
           "reason": "countDown(0) has returned, so countDown(1) resumes after its recursive call.",
           "phase": "Return to caller",
@@ -511,7 +511,7 @@ window.TRACE_SET = {
           "focus": "countDown(value - 1)"
         },
         {
-          "line": 10,
+          "line": 16,
           "title": "Finish countDown(1)",
           "reason": "No statements remain in this void method, so the call returns to its caller.",
           "phase": "Method return",
@@ -530,7 +530,7 @@ window.TRACE_SET = {
           "focus": "}"
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Resume countDown(2)",
           "reason": "countDown(1) has returned, so countDown(2) resumes after its recursive call.",
           "phase": "Return to caller",
@@ -547,7 +547,7 @@ window.TRACE_SET = {
           "focus": "countDown(value - 1)"
         },
         {
-          "line": 10,
+          "line": 16,
           "title": "Finish countDown(2)",
           "reason": "No statements remain in this void method, so the call returns to its caller.",
           "phase": "Method return",
@@ -564,7 +564,7 @@ window.TRACE_SET = {
           "focus": "}"
         },
         {
-          "line": 9,
+          "line": 11,
           "title": "Resume countDown(3)",
           "reason": "countDown(2) has returned, so countDown(3) resumes after its recursive call.",
           "phase": "Return to caller",
@@ -579,7 +579,7 @@ window.TRACE_SET = {
           "focus": "countDown(value - 1)"
         },
         {
-          "line": 10,
+          "line": 16,
           "title": "Finish countDown(3)",
           "reason": "No statements remain in this void method, so the call returns to its caller.",
           "phase": "Method return",
@@ -594,7 +594,7 @@ window.TRACE_SET = {
           "focus": "}"
         },
         {
-          "line": 13,
+          "line": 19,
           "title": "Resume main",
           "reason": "countDown(3) has returned. Main has no remaining work.",
           "phase": "Return to caller",
@@ -607,7 +607,7 @@ window.TRACE_SET = {
           "focus": "countDown(3)"
         },
         {
-          "line": 14,
+          "line": 20,
           "title": "Finish main",
           "reason": "Program execution is complete.",
           "phase": "Method return",
