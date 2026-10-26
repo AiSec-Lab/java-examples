@@ -10,7 +10,7 @@ window.TRACE_SET = {
         {
           "line": 21,
           "title": "Enter main",
-          "reason": "Create a new frame with its own parameters. This wrapper/main frame is shown but excluded from recursive-call metrics.",
+          "reason": "This is this the main method",
           "phase": "Method entry",
           "focus": "public static void main",
           "stateSnapshot": {
@@ -4212,7 +4212,7 @@ window.TRACE_SET = {
         {
           "line": 11,
           "title": "Enter main",
-          "reason": "Create a new frame with its own parameters. This wrapper/main frame is shown but excluded from recursive-call metrics.",
+          "reason": "This is this the main method",
           "phase": "Method entry",
           "focus": "public static void main",
           "stateSnapshot": {
@@ -18470,7 +18470,7 @@ window.TRACE_SET = {
         {
           "line": 28,
           "title": "Enter main",
-          "reason": "Create a new frame with its own parameters. This wrapper/main frame is shown but excluded from recursive-call metrics.",
+          "reason": "This is this the main method",
           "phase": "Method entry",
           "focus": "public static void main",
           "stateSnapshot": {
@@ -50339,7 +50339,7 @@ window.TRACE_SET = {
         {
           "line": 28,
           "title": "Enter main",
-          "reason": "Create a new frame with its own parameters. This wrapper/main frame is shown but excluded from recursive-call metrics.",
+          "reason": "This is this the main method",
           "phase": "Method entry",
           "focus": "public static void main",
           "stateSnapshot": {
@@ -87970,7 +87970,7 @@ window.TRACE_SET = {
         {
           "line": 16,
           "title": "Enter main",
-          "reason": "Create a new frame with its own parameters. This wrapper/main frame is shown but excluded from recursive-call metrics.",
+          "reason": "This is this the main method",
           "phase": "Method entry",
           "focus": "public static void main",
           "stateSnapshot": {
@@ -98398,7 +98398,7 @@ window.TRACE_SET = {
         {
           "line": 12,
           "title": "Enter main",
-          "reason": "Create a new frame with its own parameters. This wrapper/main frame is shown but excluded from recursive-call metrics.",
+          "reason": "This is this the main method",
           "phase": "Method entry",
           "focus": "public static void main",
           "stateSnapshot": {
