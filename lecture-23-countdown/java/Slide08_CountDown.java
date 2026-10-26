@@ -9,10 +9,6 @@ public class Slide08_CountDown {
 
         // Correct: the next call moves toward the base case.
         countDown(value - 1);
-
-        // Try these one at a time to demonstrate broken progress.
-        // countDown(value);     // No reduction: repeats forever.
-        // countDown(value + 1); // Moves away from the base case.
     }
 
     public static void main(String[] args) {
