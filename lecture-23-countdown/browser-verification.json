@@ -1,0 +1,14 @@
+{
+  "url": "index.html#countdown",
+  "steps_checked": 34,
+  "focus_box_on_every_step": true,
+  "stack_on_every_step": true,
+  "previous_next_arrow_stable": true,
+  "console_output": [
+    "3",
+    "2",
+    "1",
+    "Go!"
+  ],
+  "page_errors": []
+}
