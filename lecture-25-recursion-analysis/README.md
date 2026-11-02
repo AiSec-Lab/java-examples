@@ -18,11 +18,13 @@ Six complete, small-input Java execution traces in the same UI as Exercises 2–
 - Repeated inputs count later invocations with the same algorithm/input, whether they recompute work or return a cached result. Cache hits are tracked separately. Expand call history to see individual calls and returned results.
 - Memo frames share one array. A read highlights that actual array card; a write changes its contents. Zero is a valid answer; -1 is the unknown-entry sentinel.
 - Pending expression values are explanatory evaluation temporaries, not invented source variables. Java evaluates the left Fibonacci call before the right call. The left answer is preserved while the right subtree runs.
-- The program sources match the runnable lecture files exactly, except the call-count comparison uses n=5 to show every call (15 naive versus 9 memoized). The original lecture ZIP retains n=30: both results 832040, with 2692537 naive versus 59 memoized helper calls. Millions of calls are not silently skipped or summarized as if fully animated.
+- The animation uses self-contained runnable sources. Memoized Fibonacci uses n=5: six distinct inputs, nine helper calls, three cache hits, and a final answer of 5. The call-count comparison also uses n=5 to show every call (15 naive versus 9 memoized). The original lecture ZIP retains n=30: both results 832040, with 2692537 naive versus 59 memoized helper calls. Millions of calls are not silently skipped or summarized as if fully animated.
 - These are source-level execution traces. Standard library internals (println, printf, Arrays.fill, string formatting) are treated as source operations, rather than tracing JDK implementations. Complexity discussion concerns the recursive algorithm, excluding visualization/logging overhead.
 
 ## Verification
 
-All six console outputs are compared byte-for-byte with Java 21. Counters, peak depth, cache-hit counts, final memo contents, and the backtracking traversal are checked independently. All 897 timeline steps are browser-checked for the correct expression focus, call stack, object/frame state, metrics, and history. Navigation, playback, and scrolling arrows are checked as well.
+All six console outputs are compared byte-for-byte with compiled Java programs. Counters, peak depth, cache-hit counts, final memo contents, and the backtracking traversal are checked independently. The original timeline steps were browser-checked for the correct expression focus, call stack, object/frame state, metrics, and history. Navigation, playback, and scrolling arrows are checked as well.
 
 Positive inputs shown here follow the lecture examples; branches not taken (such as negative-input validation in the memo wrapper) are not invented as execution steps. Backtracking explores +3 before doubling, returns to the original parent state on failure, and stops exploring alternatives after success.
+
+Published in `AiSec-Lab/java-examples`, commit `3f36367`. All six live GitHub Pages URLs were browser-tested after deployment.
