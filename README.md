@@ -15,3 +15,5 @@ The site is deployed automatically to GitHub Pages when `main` changes.
 - `lecture-26-elementary-sorting/`: six sorting traces with step-by-step array changes, analysis, operation counts, and runnable Java examples.
 
 - `lecture-27-efficient-sorting/`: seven merge-sort, quicksort, comparison-input, and pivot-strategy animations with live analysis.
+
+- `week-12-lab-inclass/animation/`: recursive sorting demonstrations with Java highlighting, arrow-key stepping, and random arrays; documented standalone Java is in `week-12-lab-inclass/java/`.
